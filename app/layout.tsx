@@ -64,10 +64,10 @@ export default function RootLayout({
 
 function DraftBanner() {
   return (
-    <div className="bg-forest-800 text-cream-100 text-xs">
-      <div className="container-wide py-2 flex items-center justify-between gap-4">
+    <div className="bg-forest-900 text-cream-100 text-xs">
+      <div className="container-wide py-1.5 flex items-center justify-between gap-4">
         <span>
-          <span className="pill bg-clay-400 text-cream-50 border-transparent mr-2">
+          <span className="pill bg-clay-400 text-white border-transparent mr-2">
             DRAFT
           </span>
           This is an early preview. Data is being verified — please do not cite
@@ -86,7 +86,7 @@ function DraftBanner() {
 
 function SiteHeader() {
   return (
-    <header className="border-b border-ink-900/10 bg-cream-50/80 backdrop-blur sticky top-0 z-40">
+    <header className="border-b border-ink-900/10 bg-white/90 backdrop-blur sticky top-0 z-40">
       <div className="container-wide py-4 flex items-center justify-between gap-8">
         <Link href="/" className="no-underline group">
           <div className="flex items-center gap-3">
@@ -106,7 +106,7 @@ function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-ink-700 hover:text-clay-600 no-underline"
+              className="text-slate-600 hover:text-forest-700 no-underline transition-colors"
             >
               {item.label}
             </Link>
@@ -114,7 +114,7 @@ function SiteHeader() {
         </nav>
         <Link
           href="/community"
-          className="hidden md:inline-block text-sm bg-forest-700 text-cream-50 px-4 py-2 rounded-full no-underline hover:bg-forest-800"
+          className="hidden md:inline-block text-sm bg-forest-700 text-white px-5 py-2 rounded-full no-underline hover:bg-forest-800 transition-colors font-medium"
         >
           Join
         </Link>
@@ -125,7 +125,7 @@ function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-ink-700 hover:text-clay-600 no-underline"
+              className="text-slate-600 hover:text-forest-700 no-underline"
             >
               {item.label}
             </Link>
@@ -139,23 +139,30 @@ function SiteHeader() {
 function Logo() {
   return (
     <svg
-      width="36"
-      height="36"
-      viewBox="0 0 36 36"
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
     >
-      <circle cx="18" cy="18" r="16" stroke="#3D5A40" strokeWidth="1.5" fill="#FDFAF4" />
-      <path d="M 6 26 Q 18 4 30 26" stroke="#D97757" strokeWidth="2.2" fill="none" strokeLinecap="round" />
-      <circle cx="30" cy="26" r="2.2" fill="#D97757" />
+      <circle cx="20" cy="20" r="18" fill="#0F766E" />
+      <path
+        d="M 7 28 Q 20 6 33 22"
+        stroke="white"
+        strokeWidth="2.5"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <circle cx="33" cy="22" r="3" fill="#2DD4BF" />
+      <circle cx="7" cy="28" r="2" fill="#99F6E4" opacity="0.8" />
     </svg>
   );
 }
 
 function SiteFooter() {
   return (
-    <footer className="bg-forest-900 text-cream-100 mt-24">
+    <footer className="bg-forest-900 text-cream-100 mt-24 border-t-4 border-clay-500">
       <div className="container-wide py-16 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="font-display text-2xl text-cream-50">
@@ -166,7 +173,11 @@ function SiteFooter() {
             ultra-poverty. Built by and for practitioners, researchers, funders
             and governments around the world.
           </p>
-          <form className="mt-6 flex gap-2 max-w-md" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <form
+            className="mt-6 flex gap-2 max-w-md"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
             <input
               type="email"
               placeholder="your@work.email"
@@ -174,7 +185,7 @@ function SiteFooter() {
             />
             <button
               type="submit"
-              className="bg-clay-500 hover:bg-clay-600 text-cream-50 px-4 py-2 rounded-md text-sm font-medium"
+              className="bg-clay-500 hover:bg-clay-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
             >
               Subscribe
             </button>
@@ -184,11 +195,16 @@ function SiteFooter() {
           </p>
         </div>
         <div>
-          <div className="text-xs uppercase tracking-widest text-cream-100/50 mb-3">Explore</div>
+          <div className="text-xs uppercase tracking-widest text-cream-100/50 mb-3">
+            Explore
+          </div>
           <ul className="space-y-2 text-sm">
             {nav.slice(0, 4).map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="text-cream-100 no-underline hover:text-clay-400">
+                <Link
+                  href={item.href}
+                  className="text-cream-100 no-underline hover:text-clay-400 transition-colors"
+                >
                   {item.label}
                 </Link>
               </li>
@@ -200,10 +216,38 @@ function SiteFooter() {
             Learn & contribute
           </div>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/get-started" className="text-cream-100 no-underline hover:text-clay-400">Get Started</Link></li>
-            <li><Link href="/community" className="text-cream-100 no-underline hover:text-clay-400">Community</Link></li>
-            <li><Link href="/about" className="text-cream-100 no-underline hover:text-clay-400">About</Link></li>
-            <li><Link href="/about#contribute" className="text-cream-100 no-underline hover:text-clay-400">Contribute data</Link></li>
+            <li>
+              <Link
+                href="/get-started"
+                className="text-cream-100 no-underline hover:text-clay-400 transition-colors"
+              >
+                Get Started
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/community"
+                className="text-cream-100 no-underline hover:text-clay-400 transition-colors"
+              >
+                Community
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="text-cream-100 no-underline hover:text-clay-400 transition-colors"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about#contribute"
+                className="text-cream-100 no-underline hover:text-clay-400 transition-colors"
+              >
+                Contribute data
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

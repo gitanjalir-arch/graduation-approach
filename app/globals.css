@@ -8,7 +8,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    @apply bg-cream-50 text-ink-900 font-sans;
+    @apply bg-white text-ink-900 font-sans;
     font-feature-settings: "ss01", "kern";
   }
   h1,
@@ -38,42 +38,57 @@
   .stat-num {
     @apply font-display text-4xl text-forest-900 leading-none;
   }
-  /* Subtle paper texture for hero */
+  /* Subtle teal paper texture */
   .paper {
     background-image:
       radial-gradient(
         ellipse at top left,
-        rgba(217, 119, 87, 0.06),
+        rgba(13, 148, 136, 0.06),
         transparent 50%
       ),
       radial-gradient(
         ellipse at bottom right,
-        rgba(61, 90, 64, 0.06),
+        rgba(15, 118, 110, 0.06),
         transparent 50%
       );
   }
-  /* A sketchy underline used for emphasis */
+  /* Squiggle underline in teal */
   .squiggle {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6'><path d='M0 3 Q 12.5 0 25 3 T 50 3 T 75 3 T 100 3' stroke='%23D97757' stroke-width='1.5' fill='none'/></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6'><path d='M0 3 Q 12.5 0 25 3 T 50 3 T 75 3 T 100 3' stroke='%230D9488' stroke-width='1.5' fill='none'/></svg>");
     background-repeat: repeat-x;
     background-position: 0 100%;
     background-size: 100px 6px;
     padding-bottom: 6px;
   }
-  /* Tag pill */
+  /* Tag pills */
   .pill {
     @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
   }
   .pill-clay {
-    @apply pill bg-clay-400/10 border-clay-400/30 text-clay-700;
+    @apply pill bg-clay-500/10 border-clay-500/30 text-clay-600;
   }
   .pill-forest {
     @apply pill bg-forest-600/10 border-forest-600/30 text-forest-700;
   }
   .pill-ochre {
-    @apply pill bg-ochre-400/15 border-ochre-400/40 text-ochre-500;
+    @apply pill bg-ochre-400/15 border-ochre-400/40 text-clay-600;
+  }
+  .pill-teal {
+    @apply pill bg-forest-600/10 border-forest-600/30 text-forest-700;
   }
   .pill-ink {
     @apply pill bg-ink-900/5 border-ink-900/15 text-ink-700;
+  }
+  /* Card hover lift */
+  .card-hover {
+    @apply transition-all hover:shadow-lg hover:-translate-y-0.5;
+  }
+  /* Hero gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, #134E4A 0%, #0F766E 50%, #0D9488 100%);
+  }
+  /* Wave divider */
+  .wave-divider {
+    @apply absolute bottom-0 left-0 right-0;
   }
 }
