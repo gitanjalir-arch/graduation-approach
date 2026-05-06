@@ -3,8 +3,6 @@ import { programs, orgs, evidence, countryNames } from "@/data/seed";
 
 export default function HomePage() {
   const featured = programs.filter((p) => p.featured).slice(0, 6);
-  const totalHHs = programs.reduce((s, p) => s + (p.hhEnrolled || 0), 0);
-  const totalCountries = new Set(programs.flatMap((p) => p.countries)).size;
 
   return (
     <>
@@ -13,7 +11,7 @@ export default function HomePage() {
         <div className="container-wide pt-16 pb-20 lg:pt-24 lg:pb-28 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <div className="text-xs tracking-[0.25em] uppercase text-clay-600 font-medium mb-6">
-              Since 2002 · 50+ countries · 70 million people
+              405 programmes · 88 countries · 70 million people
             </div>
             <h1 className="font-display text-5xl lg:text-7xl leading-[1.05] text-forest-900">
               The world has a way out of{" "}
@@ -21,9 +19,9 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 text-lg lg:text-xl text-ink-700 leading-relaxed max-w-2xl">
               The Graduation Approach is a time-bound, multi-faceted programme
-              that has helped millions of the world's poorest households build
-              durable livelihoods. This is the place to find every programme,
-              every evaluation, and every person doing this work.
+              that has helped over 15 million households build durable
+              livelihoods. This is the place to find every programme, every
+              evaluation, and every person doing this work.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link
@@ -50,10 +48,46 @@ export default function HomePage() {
       {/* HEADLINE STATS */}
       <section className="border-b border-ink-900/5">
         <div className="container-wide py-14 grid grid-cols-2 lg:grid-cols-4 gap-8">
-          <Stat number={`${(totalHHs / 1_000_000).toFixed(1)}M+`} label="Households reached" sub="across all programmes catalogued" />
-          <Stat number={`${totalCountries}`} label="Countries" sub="from Bangladesh to Burkina Faso" />
-          <Stat number="95%" label="Graduation rate" sub="BRAC's 7-year Bangladesh follow-up" />
-          <Stat number="37%" label="Earnings increase" sub="sustained 10 years post-programme" />
+          <Stat number="15M+" label="Households reached" sub="globally, per PEI Landscape Survey 2023" />
+          <Stat number="88" label="Countries" sub="with active economic inclusion programmes" />
+          <Stat number="121–379%" label="Cost-benefit ratio" sub="J-PAL meta-analysis across 6 countries" />
+          <Stat number="37%" label="Earnings increase" sub="sustained 7 years on, BRAC Bangladesh" />
+        </div>
+      </section>
+
+      {/* PEI 2024 SNAPSHOT */}
+      <section className="border-b border-ink-900/5 bg-cream-100/50">
+        <div className="container-wide py-16">
+          <div className="grid lg:grid-cols-12 gap-10 items-end mb-10">
+            <div className="lg:col-span-7">
+              <div className="text-xs tracking-[0.25em] uppercase text-clay-600 mb-3">
+                Pathways to Scale · State of Economic Inclusion 2024
+              </div>
+              <h2 className="font-display text-3xl lg:text-4xl text-forest-900 leading-tight">
+                Where the field is in 2024
+              </h2>
+              <p className="mt-4 text-ink-700 leading-relaxed max-w-2xl">
+                The Partnership for Economic Inclusion's 2024 Landscape Survey
+                covered 405 programmes — nearly double the 2021 count.
+                Coverage grew 50% to over 70 million people. The shift to
+                government-led delivery has accelerated.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <Link
+                href="/evidence"
+                className="text-sm font-medium"
+              >
+                Read the full SEI 2024 study →
+              </Link>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <FactCard num="74%" label="of participants are reached by government-led programmes" />
+            <FactCard num="89%" label="of all programmes include personal coaching" />
+            <FactCard num="65%" label="are now adapting for climate resilience" />
+            <FactCard num="$384–$1,675" label="cost per household, depending on context and design" />
+          </div>
         </div>
       </section>
 
@@ -263,6 +297,15 @@ function Stat({ number, label, sub }: { number: string; label: string; sub: stri
   );
 }
 
+function FactCard({ num, label }: { num: string; label: string }) {
+  return (
+    <div className="bg-cream-50 border border-ink-900/10 rounded-lg p-5">
+      <div className="font-display text-3xl text-clay-600 leading-none">{num}</div>
+      <div className="mt-2 text-sm text-ink-700 leading-snug">{label}</div>
+    </div>
+  );
+}
+
 function Component({ icon, title, text }: { icon: string; title: string; text: string }) {
   return (
     <div className="border border-ink-900/10 rounded-lg p-5 bg-cream-50 hover:border-clay-400/40 transition-colors">
@@ -282,23 +325,35 @@ function ProgramCard({
   return (
     <Link
       href={`/programs/${program.slug}`}
-      className="block border border-ink-900/10 rounded-lg p-6 bg-cream-50 hover:border-clay-400/50 hover:shadow-sm transition-all no-underline group"
+      className="block border border-ink-900/10 rounded-lg overflow-hidden bg-cream-50 hover:border-clay-400/50 hover:shadow-md transition-all no-underline group"
     >
-      <div className="flex items-center gap-2 mb-3 text-xs">
-        <span className="pill-forest">{program.model}</span>
-        <span className="pill-ink">{program.status}</span>
-      </div>
-      <h3 className="font-display text-xl text-forest-900 leading-tight group-hover:text-clay-700 transition-colors">
-        {program.name}
-      </h3>
-      <p className="mt-2 text-sm text-ink-700 leading-relaxed line-clamp-2">
-        {program.oneLiner}
-      </p>
-      <div className="mt-5 pt-4 border-t border-ink-900/5 flex items-center justify-between text-xs text-ink-500">
-        <span>{impl?.name}</span>
-        <span className="font-mono">
-          {program.countries.map((c) => countryNames[c] || c).join(" · ")}
-        </span>
+      {program.headerImage && (
+        <div className="aspect-[16/10] overflow-hidden bg-cream-200">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={program.headerImage}
+            alt=""
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      )}
+      <div className="p-6">
+        <div className="flex items-center gap-2 mb-3 text-xs">
+          <span className="pill-forest">{program.model}</span>
+          <span className="pill-ink">{program.status}</span>
+        </div>
+        <h3 className="font-display text-xl text-forest-900 leading-tight group-hover:text-clay-700 transition-colors">
+          {program.name}
+        </h3>
+        <p className="mt-2 text-sm text-ink-700 leading-relaxed line-clamp-2">
+          {program.oneLiner}
+        </p>
+        <div className="mt-5 pt-4 border-t border-ink-900/5 flex items-center justify-between text-xs text-ink-500">
+          <span>{impl?.name}</span>
+          <span className="font-mono">
+            {program.countries.map((c) => countryNames[c] || c).join(" · ")}
+          </span>
+        </div>
       </div>
     </Link>
   );

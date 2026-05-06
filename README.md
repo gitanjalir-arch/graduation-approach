@@ -8,7 +8,7 @@ This repo is the launch scaffold — Next.js 14 (App Router) + TypeScript + Tail
 
 - **Homepage** — hero, model explainer, featured programmes, evidence highlights, audience pathways
 - **Atlas** — interactive SVG world map with status filters and click-to-detail
-- **Programmes** — index + detail pages for 12 seed programmes (BRAC TUP, Fonkoze CLM, JEEViKA-SJY, UdGram, BOMA REAP, etc.)
+- **Programmes** — index + detail pages for 12 seed programmes (BRAC TUP, Fonkoze CLM, JEEViKA-SJY, The/Nudge Economic Inclusion, BOMA REAP, etc.)
 - **Organisations** — index + detail for 23 implementers, governments, funders, researchers, TA partners
 - **People** — index + detail for 8 figures in the field
 - **Evidence** — 5 seed evaluation studies

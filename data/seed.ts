@@ -22,11 +22,19 @@ export type Org = {
   website?: string;
 };
 
+export type PersonCategory =
+  | "Practitioner"
+  | "Researcher"
+  | "FieldBuilder"
+  | "Government"
+  | "Funder";
+
 export type Person = {
   slug: string;
   name: string;
   currentRole: string;
   affiliation: string; // org slug
+  category: PersonCategory;
   bio: string;
   expertise: string[];
   contactPref: "public_email" | "contact_form" | "none";
@@ -68,6 +76,8 @@ export type Program = {
   pinLat: number;
   pinLng: number;
   featured?: boolean;
+  headerImage?: string;
+  headerImageCredit?: string;
 };
 
 // ============ ORGS ============
@@ -306,6 +316,8 @@ export const programs: Program[] = [
     pinLat: 23.685,
     pinLng: 90.3563,
     featured: true,
+    headerImage: "https://images.unsplash.com/photo-1582550945154-6d7faaba2e3a?w=1200&q=80",
+    headerImageCredit: "Photo: Mehrab Zahedbeigi / Unsplash",
   },
   {
     slug: "fonkoze-clm-haiti",
@@ -328,6 +340,8 @@ export const programs: Program[] = [
     pinLat: 18.9712,
     pinLng: -72.2852,
     featured: true,
+    headerImage: "https://images.unsplash.com/photo-1601053475330-00cf3a13d2ce?w=1200&q=80",
+    headerImageCredit: "Photo: Reinaldo Kevin / Unsplash",
   },
   {
     slug: "jeevika-sjy-bihar",
@@ -351,29 +365,33 @@ export const programs: Program[] = [
     pinLat: 25.0961,
     pinLng: 85.3131,
     featured: true,
+    headerImage: "https://images.unsplash.com/photo-1617369120004-4fc70312c5e6?w=1200&q=80",
+    headerImageCredit: "Photo: Sandipan Chatterjee / Unsplash",
   },
   {
-    slug: "udgram-odisha",
-    name: "UdGram — Odisha",
-    status: "Pilot",
-    startYear: 2026,
+    slug: "eip-pradan",
+    name: "Economic Inclusion Programme (EIP) — Pradan",
+    status: "Active",
+    startYear: 2018,
     oneLiner:
-      "A whole-of-village Graduation pilot in tribal Rayagada, launching Kharif 2026.",
+      "Pradan's flagship Graduation programme, embedding the approach within SHG networks across tribal districts of central and eastern India.",
     description:
-      "UdGram (Sanskrit: 'upward village') is The/Nudge Institute's whole-of-village adaptation of the Graduation Approach, drawing on Raising The Village (RTV) learnings from East Africa. Targets 8,000 households across 70-80 villages in Ramanaguda and Padmapur blocks of Rayagada district, Odisha. Staggered cohort design with 4 cohorts over 4 years.",
-    model: "WholeOfVillage",
-    durationMonths: 30,
-    hhEnrolled: 800,
+      "Pradan's Economic Inclusion Programme (EIP) applies the Graduation Approach within its established self-help group (SHG) architecture across Jharkhand, Odisha, Madhya Pradesh, and Chhattisgarh. Focuses on the poorest women within SHG villages — combining asset transfer, livelihoods coaching, and savings group linkage with Pradan's deep community presence. EIP is one of the most significant India-specific adaptations of Graduation, designed for tribal and forest-fringe communities where formal market access is limited.",
+    model: "CoachingOnly",
+    durationMonths: 24,
+    hhEnrolled: 50000,
     countries: ["IN"],
     primaryCountry: "IN",
-    region: "Odisha",
-    primaryImplementer: "the-nudge",
-    govtImplementer: "olm",
+    region: "Jharkhand, Odisha, MP, Chhattisgarh",
+    primaryImplementer: "pradan",
     taPartners: [],
     funders: [],
-    pinLat: 19.1577,
-    pinLng: 83.4138,
+    livelihoodsBasket: { farm: 0.5, nonFarm: 0.3, mixed: 0.2 },
+    pinLat: 23.3441,
+    pinLng: 85.3096,
     featured: true,
+    headerImage: "https://images.unsplash.com/photo-1587613864411-2b9bcd5e3a25?w=1200&q=80",
+    headerImageCredit: "Photo: Belle Maluf / Unsplash",
   },
   {
     slug: "trickle-up-india",
@@ -396,6 +414,8 @@ export const programs: Program[] = [
     pinLat: 22.5726,
     pinLng: 88.3639,
     featured: false,
+    headerImage: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=1200&q=80",
+    headerImageCredit: "Photo: Hari Nandakumar / Unsplash",
   },
   {
     slug: "boma-reap-kenya",
@@ -417,6 +437,8 @@ export const programs: Program[] = [
     pinLat: 1.7471,
     pinLng: 36.8219,
     featured: true,
+    headerImage: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=80",
+    headerImageCredit: "Photo: Sergey Pesterev / Unsplash",
   },
   {
     slug: "village-enterprise-uganda",
@@ -438,6 +460,8 @@ export const programs: Program[] = [
     pinLat: 1.3733,
     pinLng: 32.2903,
     featured: false,
+    headerImage: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1200&q=80",
+    headerImageCredit: "Photo: Random Institute / Unsplash",
   },
   {
     slug: "unhcr-trickle-up-refugee",
@@ -459,6 +483,8 @@ export const programs: Program[] = [
     pinLat: 12.3714,
     pinLng: -1.5197,
     featured: true,
+    headerImage: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1200&q=80",
+    headerImageCredit: "Photo: Annie Spratt / Unsplash",
   },
   {
     slug: "bandhan-india",
@@ -484,6 +510,8 @@ export const programs: Program[] = [
     pinLat: 22.0,
     pinLng: 88.5,
     featured: false,
+    headerImage: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=80",
+    headerImageCredit: "Photo: Geert Pieters / Unsplash",
   },
   {
     slug: "psnp-ethiopia",
@@ -506,6 +534,8 @@ export const programs: Program[] = [
     pinLat: 9.145,
     pinLng: 40.4897,
     featured: false,
+    headerImage: "https://images.unsplash.com/photo-1502784444184-c4dca0c92cf0?w=1200&q=80",
+    headerImageCredit: "Photo: Trevor Cole / Unsplash",
   },
   {
     slug: "haku-winay-peru",
@@ -528,6 +558,8 @@ export const programs: Program[] = [
     pinLat: -9.19,
     pinLng: -75.0152,
     featured: false,
+    headerImage: "https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=1200&q=80",
+    headerImageCredit: "Photo: Persnickety Prints / Unsplash",
   },
   {
     slug: "brac-uganda-disability",
@@ -549,16 +581,20 @@ export const programs: Program[] = [
     pinLat: 1.3733,
     pinLng: 32.2903,
     featured: false,
+    headerImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
+    headerImageCredit: "Photo: Doug Linstedt / Unsplash",
   },
 ];
 
 // ============ PEOPLE ============
 export const people: Person[] = [
+  // ===== PRACTITIONERS (run programmes day-to-day) =====
   {
     slug: "shameran-abed",
     name: "Shameran Abed",
     currentRole: "Executive Director, BRAC International",
     affiliation: "brac",
+    category: "Practitioner",
     bio: "Leads BRAC International's operations across 16 countries. Frequent speaker on the future of Graduation and how the approach is adapting to climate, conflict, and government scale-up.",
     expertise: ["Strategy", "Government scale-up", "Bangladesh"],
     contactPref: "contact_form",
@@ -568,6 +604,7 @@ export const people: Person[] = [
     name: "Lindsay Coates",
     currentRole: "Managing Director, BRAC UPGI",
     affiliation: "brac-upgi",
+    category: "Practitioner",
     bio: "Leads BRAC's global advisory work supporting governments to scale Graduation. Previously President of InterAction.",
     expertise: ["Government TA", "Advocacy", "Africa"],
     contactPref: "contact_form",
@@ -577,6 +614,7 @@ export const people: Person[] = [
     name: "Bill Abrams",
     currentRole: "President Emeritus, Trickle Up",
     affiliation: "trickle-up",
+    category: "Practitioner",
     bio: "Long-time President of Trickle Up. Helped pioneer the application of Graduation to refugee and displaced populations through partnership with UNHCR.",
     expertise: ["Refugee contexts", "India", "West Africa"],
     contactPref: "contact_form",
@@ -586,47 +624,204 @@ export const people: Person[] = [
     name: "Carine Roenen",
     currentRole: "Founder, Chemin Lavi Miyo",
     affiliation: "fonkoze",
-    bio: "Founding Executive Director of Fonkoze's CLM Graduation programme. Recognised globally for adapting Graduation to fragile contexts.",
+    category: "Practitioner",
+    bio: "Founding Executive Director of Fonkoze's CLM Graduation programme. Recognised globally for adapting Graduation to fragile contexts including post-earthquake and post-cholera Haiti.",
     expertise: ["Haiti", "Fragile contexts", "Coaching"],
     contactPref: "contact_form",
   },
+  {
+    slug: "kathleen-colson",
+    name: "Kathleen Colson",
+    currentRole: "Founder & CEO, BOMA Project",
+    affiliation: "boma",
+    category: "Practitioner",
+    bio: "Founded BOMA in 2005 to bring Graduation to the dryland communities of Northern Kenya. Has overseen REAP's expansion to over 80,000 households across Kenya and Uganda.",
+    expertise: ["Pastoralist contexts", "Climate adaptation", "Women's empowerment"],
+    contactPref: "contact_form",
+  },
+  {
+    slug: "dianne-calvi",
+    name: "Dianne Calvi",
+    currentRole: "President & CEO, Village Enterprise",
+    affiliation: "village-enterprise",
+    category: "Practitioner",
+    bio: "Leads Village Enterprise's pioneering pay-for-results Graduation work in East Africa. Has driven the organisation's scale-up to a quarter-million households across Uganda, Kenya, Rwanda, and DRC.",
+    expertise: ["Cash-Plus model", "Pay-for-results", "East Africa"],
+    contactPref: "contact_form",
+  },
+  {
+    slug: "saikat-sarkar",
+    name: "Saikat Sarkar",
+    currentRole: "Director, Pradan",
+    affiliation: "pradan",
+    category: "Practitioner",
+    bio: "Senior leadership at Pradan, one of India's pioneering livelihoods organisations. Architect of Pradan's Economic Inclusion Programme integrating Graduation with the SHG architecture in tribal central India.",
+    expertise: ["India", "SHG-based delivery", "Tribal communities"],
+    contactPref: "contact_form",
+  },
+
+  // ===== RESEARCHERS & EVALUATORS =====
   {
     slug: "abhijit-banerjee",
     name: "Abhijit Banerjee",
     currentRole: "Ford Foundation International Professor of Economics, MIT",
     affiliation: "j-pal",
-    bio: "Co-founder of J-PAL, Nobel Laureate in Economics (2019). Lead author of the seminal 2015 Science paper showing the Graduation Approach's impact across six countries.",
-    expertise: ["RCT methodology", "Development economics"],
+    category: "Researcher",
+    bio: "Co-founder of J-PAL, Nobel Laureate in Economics (2019). Lead author of the seminal 2015 Science paper showing the Graduation Approach's impact across six countries — the field-defining piece of empirical evidence.",
+    expertise: ["RCT methodology", "Development economics", "Cross-country evaluation"],
     contactPref: "none",
   },
   {
     slug: "esther-duflo",
     name: "Esther Duflo",
-    currentRole: "Abdul Latif Jameel Professor, MIT",
+    currentRole: "Abdul Latif Jameel Professor of Poverty Alleviation, MIT",
     affiliation: "j-pal",
-    bio: "Co-founder of J-PAL, Nobel Laureate in Economics (2019). Co-author of the 2015 six-country Graduation RCT.",
+    category: "Researcher",
+    bio: "Co-founder of J-PAL, Nobel Laureate in Economics (2019). Co-author of the 2015 six-country Graduation RCT and longstanding researcher on what works for the world's poorest households.",
     expertise: ["RCT methodology", "Development economics"],
     contactPref: "none",
   },
   {
+    slug: "oriana-bandiera",
+    name: "Oriana Bandiera",
+    currentRole: "Sir Anthony Atkinson Professor of Economics, LSE",
+    affiliation: "j-pal",
+    category: "Researcher",
+    bio: "Lead author of the 7-year Bangladesh follow-up study showing 37% sustained earnings increase among BRAC TUP participants — the longest-running Graduation evaluation. Director of LSE's STICERD.",
+    expertise: ["Long-term impact", "Bangladesh", "Labour economics"],
+    contactPref: "none",
+  },
+  {
+    slug: "dean-karlan",
+    name: "Dean Karlan",
+    currentRole: "Professor of Economics, Northwestern Kellogg",
+    affiliation: "ipa",
+    category: "Researcher",
+    bio: "Founder of Innovations for Poverty Action. Co-author on multiple Graduation RCTs including the Sahel Adaptive Social Protection trials and the Village Enterprise multi-arm Uganda study comparing Graduation with cash transfers.",
+    expertise: ["RCTs", "Cash transfer comparisons", "West Africa"],
+    contactPref: "none",
+  },
+  {
+    slug: "thomas-bossuroy",
+    name: "Thomas Bossuroy",
+    currentRole: "Senior Economist, World Bank",
+    affiliation: "pei",
+    category: "Researcher",
+    bio: "Lead author of the Sahel Adaptive Social Protection Programme RCT (Nature, 2022) — the largest evidence base for government-led economic inclusion to date. Studied programmes in Burkina Faso, Mauritania, Niger, and Senegal.",
+    expertise: ["Government-led programmes", "Sahel", "Adaptive social protection"],
+    contactPref: "none",
+  },
+  {
+    slug: "patrick-premand",
+    name: "Patrick Premand",
+    currentRole: "Senior Economist, World Bank Development Research Group",
+    affiliation: "pei",
+    category: "Researcher",
+    bio: "Co-author of the Sahel ASP studies. Specialises in evaluating large-scale government social protection and economic inclusion programmes in low-income contexts.",
+    expertise: ["Programme evaluation", "Social protection", "Africa"],
+    contactPref: "none",
+  },
+
+  // ===== FIELD BUILDERS (PEI, BRAC UPGI, CGAP alumni) =====
+  {
+    slug: "colin-andrews",
+    name: "Colin Andrews",
+    currentRole: "Programme Manager, Partnership for Economic Inclusion (World Bank)",
+    affiliation: "pei",
+    category: "FieldBuilder",
+    bio: "Heads PEI at the World Bank and co-author of both State of Economic Inclusion reports (2021, 2024). Leads the Bank's work bringing Graduation into government social protection systems in 71+ countries.",
+    expertise: ["Government scale-up", "Social protection systems", "Policy"],
+    contactPref: "contact_form",
+  },
+  {
     slug: "aude-de-montesquiou",
     name: "Aude de Montesquiou",
-    currentRole: "Senior Economist & Acting Manager, PEI",
+    currentRole: "Senior Economist, Partnership for Economic Inclusion",
     affiliation: "pei",
-    bio: "Co-author of the canonical Technical Guide to the Graduation Approach (2nd ed., 2018). Has shaped the field's consolidation under PEI at the World Bank.",
-    expertise: ["Government scale-up", "Policy", "Knowledge management"],
+    category: "FieldBuilder",
+    bio: "Co-author of the canonical Technical Guide to the Graduation Approach (2nd ed., 2018) and co-author of the SEI 2024 report. Has shaped the field's consolidation from CGAP-Ford to PEI.",
+    expertise: ["Programme design", "Knowledge management", "Government TA"],
+    contactPref: "contact_form",
+  },
+  {
+    slug: "puja-vasudeva-dutta",
+    name: "Puja Vasudeva Dutta",
+    currentRole: "Senior Economist, World Bank Social Protection",
+    affiliation: "pei",
+    category: "FieldBuilder",
+    bio: "Co-author of the SEI 2024 report. Long history with World Bank's South Asia Social Protection portfolio, including the design of state-level economic inclusion in India.",
+    expertise: ["South Asia", "Social protection design", "India"],
     contactPref: "contact_form",
   },
   {
     slug: "syed-hashemi",
-    name: "Syed Hashemi",
+    name: "Syed M. Hashemi",
     currentRole: "Senior Advisor, BRAC UPGI",
     affiliation: "brac-upgi",
-    bio: "Founding director of the BRAC Development Institute. One of the architects of the original CGAP-Ford Graduation pilots and co-author of the Technical Guide.",
-    expertise: ["Programme design", "Bangladesh", "Research"],
+    category: "FieldBuilder",
+    bio: "Founding director of the BRAC Development Institute. One of the architects of the original CGAP-Ford Graduation pilots and co-author of the Technical Guide. A defining voice in how the field thinks about ultra-poverty.",
+    expertise: ["Programme design", "Bangladesh", "Theory of change"],
+    contactPref: "contact_form",
+  },
+  {
+    slug: "ines-arevalo-sanchez",
+    name: "Inés Arévalo-Sánchez",
+    currentRole: "Economist, Partnership for Economic Inclusion",
+    affiliation: "pei",
+    category: "FieldBuilder",
+    bio: "Lead author of the State of Economic Inclusion Report 2024. Has been central to PEI's Landscape Survey work tracking 405 economic inclusion programmes across 88 countries.",
+    expertise: ["Landscape research", "Programme inventory", "M&E systems"],
+    contactPref: "contact_form",
+  },
+
+  // ===== GOVERNMENT LEADERS =====
+  {
+    slug: "rahul-kumar-jeevika",
+    name: "Rahul Kumar (placeholder)",
+    currentRole: "CEO, Bihar Rural Livelihoods Society (JEEViKA)",
+    affiliation: "jeevika",
+    category: "Government",
+    bio: "Heads JEEViKA, the state mission running Satat Jeevikoparjan Yojana (SJY) — India's largest government-led Graduation programme, reaching 100,000+ ultra-poor households across Bihar.",
+    expertise: ["Government delivery", "India", "SHG-led programmes"],
+    contactPref: "contact_form",
+  },
+  {
+    slug: "olm-leadership",
+    name: "OLM Leadership (verification pending)",
+    currentRole: "Mission Director, Odisha Livelihoods Mission",
+    affiliation: "olm",
+    category: "Government",
+    bio: "Leads OLM, which runs Mission Subhadra and partners with NGOs on Graduation-style work in Odisha's tribal districts. Specific name to be confirmed before publication.",
+    expertise: ["Government delivery", "India", "Tribal contexts"],
+    contactPref: "contact_form",
+  },
+
+  // ===== FUNDERS =====
+  {
+    slug: "ford-foundation-program-officer",
+    name: "Ford Foundation — Programme Lead",
+    currentRole: "Senior Programme Officer, Ford Foundation",
+    affiliation: "ford-foundation",
+    category: "Funder",
+    bio: "Ford Foundation's contemporary programme lead for economic inclusion work. Ford was the original co-funder of the CGAP-Ford pilots from 2006 to 2014, anchoring the global learning agenda. Specific contact to be confirmed.",
+    expertise: ["Philanthropy", "Field building", "Cross-country grantmaking"],
+    contactPref: "contact_form",
+  },
+  {
+    slug: "co-impact-lead",
+    name: "Co-Impact — Economic Opportunity Lead",
+    currentRole: "Programme Lead, Economic Opportunity, Co-Impact",
+    affiliation: "co-impact",
+    category: "Funder",
+    bio: "Co-Impact funds BRAC UPGI's $65M plan to scale Graduation through governments to reach 4.6M households. Specific contact to be confirmed.",
+    expertise: ["Systems-change philanthropy", "Government scale-up funding"],
     contactPref: "contact_form",
   },
 ];
+
+// Helper: people grouped by category
+export const peopleByCategory = (cat: PersonCategory) =>
+  people.filter((p) => p.category === cat);
 
 // ============ EVIDENCE ============
 export const evidence: Evidence[] = [
@@ -685,6 +880,52 @@ export const evidence: Evidence[] = [
     year: 2018,
     headline:
       "In Ghana, households receiving the full Graduation package showed substantially greater outcomes than those receiving asset transfer alone, suggesting coaching and complementary components materially drive impact.",
+    finding: "positive",
+  },
+  {
+    slug: "bossuroy-sahel-asp-nature",
+    title:
+      "Tackling Psychosocial and Capital Constraints to Alleviate Poverty (Sahel Adaptive Social Protection)",
+    programSlug: "psnp-ethiopia",
+    methodology: "RCT",
+    evaluatorOrg: "j-pal",
+    year: 2022,
+    headline:
+      "Published in Nature, this study evaluated a government-led economic inclusion programme layered onto cash transfers in Niger. Found a 15% increase in consumption and 107% increase in business revenues for women, with cost-benefit ratio of 127% just 18 months after implementation.",
+    finding: "positive",
+  },
+  {
+    slug: "botea-zambia-girl-cohort",
+    title: "Supporting Women's Livelihoods at Scale — Zambia",
+    programSlug: "psnp-ethiopia",
+    methodology: "RCT",
+    evaluatorOrg: "j-pal",
+    year: 2023,
+    headline:
+      "NBER working paper evaluating Zambia's nationwide multi-faceted programme. Found 19% increase in consumption and 45% increase in business profits, with the programme breaking even within 12 months and 36% projected return on investment under sustained-impact assumptions.",
+    finding: "positive",
+  },
+  {
+    slug: "jpal-meta-analysis-2023",
+    title: "Building Stable Livelihoods for Low-Income Households — Meta-analysis",
+    programSlug: "brac-tup-bangladesh",
+    methodology: "MixedMethods",
+    evaluatorOrg: "j-pal",
+    year: 2023,
+    headline:
+      "J-PAL Policy Insight synthesising evidence from Afghanistan, Bangladesh, DR Congo, Ghana, Nepal, and Niger. Found cost-benefit ratios between 121% and 379%, with internal rates of return ranging from 16% to 66% — establishing Graduation as one of the most cost-effective anti-poverty interventions ever evaluated.",
+    finding: "positive",
+  },
+  {
+    slug: "sei-2024",
+    title:
+      "The State of Economic Inclusion Report 2024: Pathways to Scale",
+    programSlug: "jeevika-sjy-bihar",
+    methodology: "MixedMethods",
+    evaluatorOrg: "pei",
+    year: 2024,
+    headline:
+      "PEI's biennial flagship report. Surveyed 405 economic inclusion programmes across 88 countries, reaching over 15 million households and 70 million people. Government-led programmes now cover 74% of all participants, with the World Bank financing 74% of those.",
     finding: "positive",
   },
 ];

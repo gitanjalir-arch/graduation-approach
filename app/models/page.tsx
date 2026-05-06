@@ -36,7 +36,7 @@ const models = [
     tag: "Reaching everyone in a village",
     duration: "24–30 months",
     components: ["Targeting (village-level)", "Asset transfer", "Community institutions", "Coaching", "Climate resilience"],
-    examples: "Raising The Village (RTV) · UdGram-Odisha (launching 2026)",
+    examples: "Raising The Village (RTV) · The/Nudge Economic Inclusion — Odisha (launching 2026)",
     cost: "$30 per HH (RTV claims)",
     evidence: "Emerging",
     note: "Targets the whole village rather than only the ultra-poor, with a heavy emphasis on community-level assets and convergence.",

@@ -24,8 +24,8 @@ module.exports = {
         ink: { 900: "#1C1917", 700: "#3F3935", 500: "#6B635D", 300: "#A8A099" },
       },
       fontFamily: {
-        display: ['"Fraunces"', "Georgia", "serif"],
-        sans: ['"Instrument Sans"', "system-ui", "sans-serif"],
+        display: ['"Source Serif 4"', "Georgia", "serif"],
+        sans: ['"Inter"', "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "monospace"],
       },
       maxWidth: { prose: "68ch", wide: "1240px" },

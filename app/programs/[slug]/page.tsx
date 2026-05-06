@@ -41,6 +41,22 @@ export default function ProgramPage({ params }: { params: { slug: string } }) {
   return (
     <article>
       {/* HERO */}
+      {p.headerImage && (
+        <div className="relative aspect-[16/6] bg-cream-200 overflow-hidden border-b border-ink-900/10">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={p.headerImage}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-cream-50/95 via-cream-50/30 to-transparent" />
+          {p.headerImageCredit && (
+            <div className="absolute bottom-2 right-3 text-[10px] text-ink-500 italic">
+              {p.headerImageCredit}
+            </div>
+          )}
+        </div>
+      )}
       <header className="paper border-b border-ink-900/10">
         <div className="container-wide py-12 lg:py-16">
           <Link

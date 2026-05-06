@@ -6,6 +6,24 @@ export const metadata: Metadata = {
   title: "GraduationApproach.org — The home of the Graduation Approach",
   description:
     "A community-curated atlas, library and directory of poverty graduation programmes worldwide. Built for practitioners, researchers, funders and governments.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
+  openGraph: {
+    title: "GraduationApproach.org",
+    description: "A community-curated atlas of poverty graduation programmes worldwide.",
+    url: "https://graduation-approach.vercel.app",
+    siteName: "GraduationApproach.org",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GraduationApproach.org",
+    description: "A community-curated atlas of poverty graduation programmes worldwide.",
+    images: ["/og-image.png"],
+  },
 };
 
 const nav = [
@@ -30,7 +48,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
       </head>
@@ -148,7 +166,7 @@ function SiteFooter() {
             ultra-poverty. Built by and for practitioners, researchers, funders
             and governments around the world.
           </p>
-          <form className="mt-6 flex gap-2 max-w-md">
+          <form className="mt-6 flex gap-2 max-w-md" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input
               type="email"
               placeholder="your@work.email"

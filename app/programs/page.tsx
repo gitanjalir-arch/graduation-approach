@@ -28,24 +28,36 @@ export default function ProgramsPage() {
             <Link
               key={p.slug}
               href={`/programs/${p.slug}`}
-              className="block border border-ink-900/10 rounded-lg p-6 bg-cream-50 hover:border-clay-400/50 hover:shadow-sm transition-all no-underline group"
+              className="block border border-ink-900/10 rounded-lg overflow-hidden bg-cream-50 hover:border-clay-400/50 hover:shadow-md transition-all no-underline group"
             >
-              <div className="flex items-center gap-2 mb-3 text-xs">
-                <span className="pill-forest">{p.model}</span>
-                <span className="pill-ink">{p.status}</span>
-              </div>
-              <h3 className="font-display text-xl text-forest-900 leading-tight group-hover:text-clay-700">
-                {p.name}
-              </h3>
-              <p className="mt-2 text-sm text-ink-700 leading-relaxed line-clamp-2">
-                {p.oneLiner}
-              </p>
-              <div className="mt-5 pt-4 border-t border-ink-900/5 flex items-center justify-between text-xs text-ink-500">
-                <span>{impl?.name}</span>
-                <span className="font-mono">
-                  {p.countries.map((c) => countryNames[c] || c).slice(0, 2).join(" · ")}
-                  {p.countries.length > 2 && ` +${p.countries.length - 2}`}
-                </span>
+              {p.headerImage && (
+                <div className="aspect-[16/10] overflow-hidden bg-cream-200">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.headerImage}
+                    alt=""
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              )}
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3 text-xs">
+                  <span className="pill-forest">{p.model}</span>
+                  <span className="pill-ink">{p.status}</span>
+                </div>
+                <h3 className="font-display text-xl text-forest-900 leading-tight group-hover:text-clay-700">
+                  {p.name}
+                </h3>
+                <p className="mt-2 text-sm text-ink-700 leading-relaxed line-clamp-2">
+                  {p.oneLiner}
+                </p>
+                <div className="mt-5 pt-4 border-t border-ink-900/5 flex items-center justify-between text-xs text-ink-500">
+                  <span>{impl?.name}</span>
+                  <span className="font-mono">
+                    {p.countries.map((c) => countryNames[c] || c).slice(0, 2).join(" · ")}
+                    {p.countries.length > 2 && ` +${p.countries.length - 2}`}
+                  </span>
+                </div>
               </div>
             </Link>
           );
