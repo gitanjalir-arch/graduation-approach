@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-cream-50 text-ink-900 font-sans;
+    font-feature-settings: "ss01", "kern";
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-forest-900;
+  }
+  a {
+    @apply text-clay-600 underline decoration-clay-400/40 underline-offset-2 transition-colors;
+  }
+  a:hover {
+    @apply text-clay-700 decoration-clay-600;
+  }
+}
+
+@layer components {
+  .container-wide {
+    @apply max-w-wide mx-auto px-6 lg:px-10;
+  }
+  .container-prose {
+    @apply max-w-prose mx-auto px-6;
+  }
+  .stat {
+    @apply font-mono text-sm tracking-tight text-ink-700;
+  }
+  .stat-num {
+    @apply font-display text-4xl text-forest-900 leading-none;
+  }
+  /* Subtle paper texture for hero */
+  .paper {
+    background-image:
+      radial-gradient(
+        ellipse at top left,
+        rgba(217, 119, 87, 0.06),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at bottom right,
+        rgba(61, 90, 64, 0.06),
+        transparent 50%
+      );
+  }
+  /* A sketchy underline used for emphasis */
+  .squiggle {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6'><path d='M0 3 Q 12.5 0 25 3 T 50 3 T 75 3 T 100 3' stroke='%23D97757' stroke-width='1.5' fill='none'/></svg>");
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    background-size: 100px 6px;
+    padding-bottom: 6px;
+  }
+  /* Tag pill */
+  .pill {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  }
+  .pill-clay {
+    @apply pill bg-clay-400/10 border-clay-400/30 text-clay-700;
+  }
+  .pill-forest {
+    @apply pill bg-forest-600/10 border-forest-600/30 text-forest-700;
+  }
+  .pill-ochre {
+    @apply pill bg-ochre-400/15 border-ochre-400/40 text-ochre-500;
+  }
+  .pill-ink {
+    @apply pill bg-ink-900/5 border-ink-900/15 text-ink-700;
+  }
+}
