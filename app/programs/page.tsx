@@ -30,16 +30,6 @@ export default function ProgramsPage() {
               href={`/programs/${p.slug}`}
               className="block border border-ink-900/10 rounded-lg overflow-hidden bg-cream-50 hover:border-clay-400/50 hover:shadow-md transition-all no-underline group"
             >
-              {p.headerImage && (
-                <div className="aspect-[16/10] overflow-hidden bg-cream-200">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.headerImage}
-                    alt=""
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-              )}
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3 text-xs">
                   <span className="pill-forest">{p.model}</span>

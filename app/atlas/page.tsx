@@ -1,5 +1,9 @@
 import AtlasMap from "./AtlasMap";
 
+// Mapbox GL JS requires its CSS to be loaded globally.
+// The `import` here gets bundled by Next and injected into the page <head>.
+import "mapbox-gl/dist/mapbox-gl.css";
+
 export const metadata = {
   title: "Atlas — GraduationApproach.org",
   description:
@@ -17,9 +21,9 @@ export default function AtlasPage() {
           Where the Graduation Approach is alive
         </h1>
         <p className="mt-4 text-lg text-ink-700 leading-relaxed">
-          Every pin on this map is a real programme. Use the filters to explore
-          by status. Click any pin for details and a link to the full programme
-          page.
+          Every pin is a real programme. Hover to preview, click to see full
+          details. Use the filters to explore by status, or zoom in to any
+          region.
         </p>
       </div>
       <AtlasMap />
