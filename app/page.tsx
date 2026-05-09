@@ -164,17 +164,115 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PHOTO STRIP */}
-      <section className="relative h-72 lg:h-[420px] overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/sEml33XkzkE?auto=format&fit=crop&w=1920&q=85"
-          alt="Farmer harvesting rice in Hampi, Karnataka, India"
-          fill
-          className="object-cover object-[center_45%]"
-          priority={false}
-        />
-        {/* bottom fade into next section */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30" />
+      {/* FIELD ILLUSTRATION */}
+      <section className="relative h-64 lg:h-[380px] overflow-hidden select-none">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 1440 380"
+          preserveAspectRatio="xMidYMid slice"
+          role="img"
+          aria-label="Illustrated agricultural landscape with farmers working in the fields"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="ph-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#F0FDFA" />
+              <stop offset="60%" stopColor="#5EEAD4" />
+              <stop offset="100%" stopColor="#0D9488" />
+            </linearGradient>
+            <radialGradient id="ph-glow" cx="50%" cy="100%" r="55%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+            </radialGradient>
+          </defs>
+
+          {/* Sky */}
+          <rect width="1440" height="380" fill="url(#ph-sky)" />
+          <rect width="1440" height="380" fill="url(#ph-glow)" />
+
+          {/* Far hills */}
+          <path
+            d="M0,188 Q180,162 360,176 Q540,190 720,158 Q900,126 1080,150 Q1260,174 1440,155 L1440,380 L0,380Z"
+            fill="#0D9488"
+          />
+          {/* Mid fields */}
+          <path
+            d="M0,228 Q240,210 480,221 Q720,232 960,214 Q1200,196 1440,212 L1440,380 L0,380Z"
+            fill="#0F766E"
+          />
+          {/* Near field */}
+          <path
+            d="M0,280 Q360,263 720,273 Q1080,283 1440,267 L1440,380 L0,380Z"
+            fill="#115E59"
+          />
+          {/* Foreground strip */}
+          <rect x="0" y="332" width="1440" height="48" fill="#134E4A" />
+
+          {/* Crop furrows */}
+          {[337, 346, 355, 364, 373].map((y) => (
+            <line key={y} x1="0" y1={y} x2="1440" y2={y} stroke="rgba(45,212,191,0.14)" strokeWidth="1.5" />
+          ))}
+
+          {/* Tree canopies — right cluster */}
+          <ellipse cx="1098" cy="196" rx="20" ry="13" fill="#0D9488" />
+          <ellipse cx="1128" cy="185" rx="26" ry="16" fill="#0C8880" />
+          <ellipse cx="1162" cy="189" rx="23" ry="14" fill="#0D9488" />
+          <ellipse cx="1200" cy="178" rx="31" ry="19" fill="#0B8278" />
+          <ellipse cx="1242" cy="184" rx="22" ry="14" fill="#0D9488" />
+          {/* Trunks */}
+          <line x1="1098" y1="209" x2="1098" y2="228" stroke="#0F766E" strokeWidth="4" />
+          <line x1="1128" y1="201" x2="1128" y2="226" stroke="#0F766E" strokeWidth="5" />
+          <line x1="1162" y1="203" x2="1162" y2="228" stroke="#0F766E" strokeWidth="4" />
+          <line x1="1200" y1="197" x2="1200" y2="228" stroke="#0F766E" strokeWidth="6" />
+          <line x1="1242" y1="198" x2="1242" y2="228" stroke="#0F766E" strokeWidth="4" />
+
+          {/* Worker A — bending to harvest, foreground */}
+          <circle cx="318" cy="289" r="6" fill="#0F766E" />
+          <path d="M321,294 Q331,303 342,300 Q347,299 352,304" stroke="#0F766E" strokeWidth="3.5" fill="none" strokeLinecap="round" />
+          <line x1="318" y1="294" x2="316" y2="307" stroke="#0F766E" strokeWidth="3" strokeLinecap="round" />
+          <line x1="316" y1="307" x2="311" y2="318" stroke="#0F766E" strokeWidth="3" strokeLinecap="round" />
+          <line x1="316" y1="307" x2="320" y2="318" stroke="#0F766E" strokeWidth="3" strokeLinecap="round" />
+
+          {/* Worker B — upright with hoe, mid */}
+          <circle cx="576" cy="275" r="5.5" fill="#0F766E" />
+          <line x1="576" y1="281" x2="576" y2="298" stroke="#0F766E" strokeWidth="3" strokeLinecap="round" />
+          <line x1="576" y1="287" x2="568" y2="294" stroke="#0F766E" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="576" y1="287" x2="585" y2="293" stroke="#0F766E" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="573" y1="298" x2="570" y2="311" stroke="#0F766E" strokeWidth="3" strokeLinecap="round" />
+          <line x1="578" y1="298" x2="580" y2="311" stroke="#0F766E" strokeWidth="3" strokeLinecap="round" />
+          <line x1="578" y1="283" x2="590" y2="272" stroke="#0F766E" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="590" y1="272" x2="594" y2="260" stroke="#0F766E" strokeWidth="2" strokeLinecap="round" />
+
+          {/* Worker C — bending, further */}
+          <circle cx="848" cy="260" r="4.5" fill="#115E59" />
+          <path d="M851,264 Q861,272 870,270" stroke="#115E59" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <line x1="848" y1="264" x2="847" y2="275" stroke="#115E59" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="847" y1="275" x2="843" y2="284" stroke="#115E59" strokeWidth="2.5" strokeLinecap="round" />
+          <line x1="847" y1="275" x2="851" y2="284" stroke="#115E59" strokeWidth="2.5" strokeLinecap="round" />
+
+          {/* Worker D — small, far */}
+          <circle cx="1018" cy="244" r="3.5" fill="#115E59" />
+          <line x1="1018" y1="248" x2="1018" y2="260" stroke="#115E59" strokeWidth="2" strokeLinecap="round" />
+          <line x1="1018" y1="253" x2="1013" y2="258" stroke="#115E59" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="1018" y1="253" x2="1023" y2="257" stroke="#115E59" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="1015" y1="260" x2="1013" y2="269" stroke="#115E59" strokeWidth="2" strokeLinecap="round" />
+          <line x1="1020" y1="260" x2="1022" y2="269" stroke="#115E59" strokeWidth="2" strokeLinecap="round" />
+
+          {/* Birds */}
+          <g stroke="rgba(45,212,191,0.35)" strokeWidth="1.5" fill="none" strokeLinecap="round">
+            <path d="M260,74 Q265,69 270,74" />
+            <path d="M278,84 Q283,78 288,84" />
+            <path d="M580,58 Q586,52 592,58" />
+            <path d="M604,70 Q610,63 616,70" />
+            <path d="M880,46 Q887,39 894,46" />
+          </g>
+        </svg>
+
+        <div className="absolute bottom-4 right-8">
+          <span className="text-[9px] tracking-[0.3em] uppercase text-teal-300/30 font-mono">
+            Fields · Livelihoods · Futures
+          </span>
+        </div>
       </section>
 
       {/* GROWTH TIMELINE */}
