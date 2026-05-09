@@ -1,0 +1,62 @@
+[
+  {
+    "id": "brac-upg-001",
+    "source": "BRAC Ultra-Poor Graduation Programme Overview",
+    "section": "Programme Design",
+    "text": "The BRAC Ultra-Poor Graduation (UPG) Programme is the original model of the Graduation Approach, developed in Bangladesh in 2002. The programme targets the ultra-poor—those living in extreme poverty with few assets and limited access to markets, services, or social protection. The core model includes six components delivered over 18–24 months: (1) targeting and selection of the ultra-poor, (2) asset transfer (typically one or two productive assets such as livestock), (3) cash or food support during the transition period (usually 6–12 months), (4) technical skills training on managing the transferred assets, (5) regular coaching and mentoring visits by a programme officer (typically weekly in early months, tapering to monthly), and (6) access to savings and financial services. The programme aims to help participants build a sustainable livelihood and graduate out of extreme poverty."
+  },
+  {
+    "id": "brac-scale-001",
+    "source": "BRAC Annual Report: Ultra-Poor Graduation at Scale",
+    "section": "Scale and Reach",
+    "text": "BRAC's Ultra-Poor Graduation Programme has reached over 2 million households in Bangladesh since 2002, making it the largest implementation of the Graduation Approach in the world. The programme has also been replicated in 14 countries through BRAC International, including Uganda, Tanzania, Sierra Leone, South Sudan, Liberia, Rwanda, Ghana, Nigeria, Myanmar, Pakistan, Afghanistan, and the Philippines. BRAC estimates that approximately 90% of programme graduates sustain their improved livelihood status three years after programme completion in Bangladesh. Key success factors at scale include: strong targeting systems, standardised training for coaches, robust monitoring and evaluation systems, and integration with government social protection programmes."
+  },
+  {
+    "id": "cgap-ford-pilots-001",
+    "source": "CGAP-Ford Foundation Graduation Pilots: Impact Assessment",
+    "section": "Key Findings",
+    "text": "The CGAP-Ford Foundation Graduation Pilot Programme was conducted in six countries: Ethiopia, Ghana, Honduras, India, Pakistan, and Peru between 2006 and 2014. A rigorous randomised controlled trial (RCT) evaluation found sustained positive impacts across all six sites. Key findings include: consumption increased by an average of 5–15% above control groups; asset values rose significantly; food security improved in most sites; women's empowerment indicators improved; and psychological well-being increased. Crucially, the study conducted a follow-up three years after the programme ended and found that impacts were sustained or even continued to grow in most sites—suggesting that the Graduation Approach creates durable change rather than temporary relief. The strongest long-term impacts were seen in India (West Bengal) and Ethiopia."
+  },
+  {
+    "id": "pei-costing-001",
+    "source": "Partnership for Economic Inclusion: Costing the Graduation Approach",
+    "section": "Programme Costs",
+    "text": "Programme costs for Graduation initiatives vary significantly by country context, programme intensity, and component mix. Based on data from 30+ programmes globally, the Partnership for Economic Inclusion (PEI) found that total per-household costs typically range from USD 1,000 to USD 4,000 over the full programme cycle (18–24 months). The largest cost drivers are: (1) the productive asset transfer (typically 30–50% of total cost), (2) staff time for coaching and mentoring visits (typically 20–35% of total cost), and (3) cash stipends or food support (typically 10–20% of total cost). Government-led programmes at scale tend to achieve lower per-household costs than NGO pilots due to economies of scale and integration with existing social protection infrastructure. The recommended minimum asset transfer value is USD 300–500 to be sufficient for a viable livelihood."
+  },
+  {
+    "id": "pei-coaching-001",
+    "source": "Partnership for Economic Inclusion: Coaching in Graduation Programmes",
+    "section": "Coach-to-Household Ratios",
+    "text": "Coaching is the backbone of the Graduation Approach, providing participants with the ongoing support, motivation, and practical guidance needed to manage new assets and build sustainable livelihoods. Best practice from PEI's analysis of 40+ programmes indicates that coach-to-household ratios should generally range from 1:20 to 1:40 households per coach, depending on programme intensity, geographic density, and the vulnerability profile of participants. The most intensive programmes (often with the most vulnerable participants) operate at 1:20 to 1:25. Government-led programmes at scale often operate at 1:30 to 1:50, which can reduce cost but risks diluting programme quality. Visit frequency typically starts at weekly visits in the first 3–6 months, then transitions to bi-weekly and monthly as participants gain confidence. Remote coaching via mobile phone has been piloted in several programmes as a complement to (not replacement for) in-person visits."
+  },
+  {
+    "id": "unhcr-refugee-001",
+    "source": "UNHCR / IRC: Graduation in Humanitarian and Refugee Contexts",
+    "section": "Adaptation for Refugees",
+    "text": "The Graduation Approach has been adapted and piloted in refugee and humanitarian contexts in over 15 countries, including Jordan, Uganda, Ethiopia, Kenya, and Bangladesh. Key adaptations include: shorter programme duration (12–18 months rather than 24) given mobility and legal uncertainty; greater emphasis on market access and legal right to work; integration with legal aid and documentation support; and modified targeting criteria that account for forced displacement trauma. Evidence from pilots in Uganda (Rwamwanja settlement) and Jordan (Za'atari camp) shows that Graduation can be effective for refugees, with comparable consumption and food security gains to host-community programmes. Challenges include restrictions on freedom of movement that limit market access, policy barriers to refugees owning livestock or land, and high staff turnover in humanitarian contexts. A key recommendation is to combine Graduation with legal empowerment from the programme's start."
+  },
+  {
+    "id": "cash-comparison-001",
+    "source": "Evidence Review: Graduation vs Cash Transfers for Ultra-Poverty Reduction",
+    "section": "Comparative Evidence",
+    "text": "The Graduation Approach and unconditional cash transfers (UCTs) are often compared as strategies for ultra-poverty reduction. Key differences: (1) Duration and intensity — Graduation programmes run 18–24 months with intensive coaching; UCTs are typically ongoing monthly transfers with no time limit. (2) Components — Graduation bundles assets, cash, training, and coaching; UCTs provide cash only. (3) Cost — Graduation costs USD 1,000–4,000 per household upfront; UCTs have lower upfront cost but ongoing transfer costs. (4) Evidence on long-term impact — Graduation shows sustained impacts 3–7 years post-programme; UCT evidence on long-term graduation out of poverty is more mixed. (5) Who benefits most — Graduation tends to work best for those with capacity to manage a productive asset; UCTs work for a broader population including those unable to work. Several practitioners argue the approaches are complementary: UCTs address immediate consumption needs while Graduation builds productive capacity. Some programmes integrate both—using UCT-style cash stipends within a Graduation structure."
+  },
+  {
+    "id": "pei-government-001",
+    "source": "Partnership for Economic Inclusion: Government-Led Graduation Programmes",
+    "section": "Government Implementation",
+    "text": "Government-led Graduation programmes represent the frontier of the field, with several countries integrating the Graduation Approach into national social protection systems. Leading examples include: Ethiopia's Productive Safety Net Programme (PSNP) which integrates graduation elements for the ultra-poor; Bangladesh's Ashrayan and PKSF programmes; India's Aajeevika programme (now DAY-NRLM) reaching millions of rural poor women through Self-Help Groups with graduation-like elements; Colombia's Más Familias en Acción; and Pakistan's Ehsaas Graduation Programme. Key challenges for government implementation include: maintaining coaching quality at scale, integrating across multiple ministries (social protection, agriculture, finance), sustaining budget allocation beyond pilot phases, and adapting private-sector-style coaching culture to public service delivery systems. The PEI estimates that over 80 countries have active government-led graduation or graduation-like programmes as of 2023."
+  },
+  {
+    "id": "cgap-ford-longterm-001",
+    "source": "CGAP-Ford Foundation Graduation Pilots: Impact Assessment",
+    "section": "Long-Term Durability",
+    "text": "Seven-year follow-up studies from the CGAP-Ford Foundation pilots provide the strongest long-term evidence for the Graduation Approach. In West Bengal, India, participants showed per-capita consumption 9% higher than control households seven years after programme completion. Asset values remained significantly elevated. Perhaps most striking, the time spent in work rose sharply and remained elevated, suggesting a fundamental shift in labour force participation. In Ethiopia, consumption gains of 9–12% over controls were sustained at the four-year follow-up, with particularly strong results for female-headed households. These findings stand in contrast to many other poverty interventions where impacts fade within 1–3 years of programme end. Researchers attribute durability to: asset ownership that generates ongoing returns, lasting improvements in social capital and confidence, and access to savings institutions that buffer against shocks."
+  },
+  {
+    "id": "pei-targeting-001",
+    "source": "Partnership for Economic Inclusion: Targeting in Graduation Programmes",
+    "section": "Participant Selection",
+    "text": "Rigorous targeting is essential to the Graduation Approach—the programme is designed specifically for the ultra-poor and is less appropriate for those with greater assets or capacity. Most Graduation programmes use a multi-stage targeting process: (1) Geographic targeting to identify poorest areas; (2) Community-based targeting using participatory wealth ranking to identify the poorest households; (3) Verification visits to confirm eligibility based on criteria such as: lack of productive assets, dependency on day labour or begging, poor nutritional status, female-headed or widowed household, no adult male earner. Common exclusion criteria include owning land above a threshold, having adult male earners in formal employment, or owning livestock above a defined value. Social protection registries, where they exist, are increasingly used as the entry point for targeting. Errors of inclusion (supporting non-ultra-poor) and exclusion (missing ultra-poor) are both documented challenges; community-based targeting works best with strong community facilitation."
+  }
+]

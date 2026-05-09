@@ -131,7 +131,19 @@ function SiteHeader() {
           </div>
         </Link>
         <nav className="hidden lg:flex items-center gap-8 text-sm">
-          {navGroups.map((group) => (
+          {navGroups.slice(0, 2).map((group) => (
+            <NavGroup key={group.label} label={group.label} items={group.items} />
+          ))}
+          <Link
+            href="/ask"
+            className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-forest-700 py-2 font-medium no-underline transition-colors"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            Ask
+          </Link>
+          {navGroups.slice(2).map((group) => (
             <NavGroup key={group.label} label={group.label} items={group.items} />
           ))}
         </nav>
@@ -144,7 +156,19 @@ function SiteHeader() {
       </div>
       <nav className="lg:hidden border-t border-slate-100 overflow-x-auto">
         <div className="flex gap-6 px-6 py-3 text-xs whitespace-nowrap">
-          {navGroups.map((group) => (
+          {navGroups.slice(0, 2).map((group) => (
+            <Link
+              key={group.label}
+              href={group.firstHref}
+              className="text-slate-600 hover:text-forest-700 no-underline"
+            >
+              {group.label}
+            </Link>
+          ))}
+          <Link href="/ask" className="text-slate-600 hover:text-forest-700 no-underline font-medium">
+            Ask
+          </Link>
+          {navGroups.slice(2).map((group) => (
             <Link
               key={group.label}
               href={group.firstHref}
