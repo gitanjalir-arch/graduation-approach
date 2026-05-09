@@ -165,39 +165,15 @@ export default function HomePage() {
       </section>
 
       {/* PHOTO STRIP */}
-      <section className="flex h-56 lg:h-72 overflow-hidden">
-        {[
-          {
-            src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80",
-            alt: "Women participating in a Graduation programme",
-            pos: "object-center",
-          },
-          {
-            src: "https://images.unsplash.com/photo-1560785496-3c9d3d8f11ee?auto=format&fit=crop&w=800&q=80",
-            alt: "Community group meeting in a village",
-            pos: "object-top",
-          },
-          {
-            src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
-            alt: "Field worker visiting a household",
-            pos: "object-center",
-          },
-          {
-            src: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
-            alt: "Smallholder farmer with livestock",
-            pos: "object-center",
-          },
-        ].map((photo) => (
-          <div key={photo.src} className="relative flex-1 overflow-hidden">
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              className={`object-cover ${photo.pos} transition-transform duration-700 hover:scale-105`}
-            />
-            <div className="absolute inset-0 bg-forest-900/20" />
-          </div>
-        ))}
+      <section className="relative h-64 lg:h-80 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1800&q=80"
+          alt="Farmers working in green fields and farmland"
+          fill
+          className="object-cover object-[center_60%]"
+        />
+        {/* subtle vignette — darker on the right where farmers are, open field on left */}
+        <div className="absolute inset-0 bg-gradient-to-r from-forest-900/10 via-transparent to-forest-900/40" />
       </section>
 
       {/* GROWTH TIMELINE */}
