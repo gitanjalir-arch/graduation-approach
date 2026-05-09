@@ -164,6 +164,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PHOTO STRIP */}
+      <section className="flex h-56 lg:h-72 overflow-hidden">
+        {[
+          {
+            src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80",
+            alt: "Women participating in a Graduation programme",
+            pos: "object-center",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1560785496-3c9d3d8f11ee?auto=format&fit=crop&w=800&q=80",
+            alt: "Community group meeting in a village",
+            pos: "object-top",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
+            alt: "Field worker visiting a household",
+            pos: "object-center",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+            alt: "Smallholder farmer with livestock",
+            pos: "object-center",
+          },
+        ].map((photo) => (
+          <div key={photo.src} className="relative flex-1 overflow-hidden">
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              className={`object-cover ${photo.pos} transition-transform duration-700 hover:scale-105`}
+            />
+            <div className="absolute inset-0 bg-forest-900/20" />
+          </div>
+        ))}
+      </section>
+
       {/* GROWTH TIMELINE */}
       <section className="bg-forest-900 overflow-hidden">
         <div className="container-wide py-20">
