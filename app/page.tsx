@@ -165,15 +165,16 @@ export default function HomePage() {
       </section>
 
       {/* PHOTO STRIP */}
-      <section className="relative h-64 lg:h-80 overflow-hidden">
+      <section className="relative h-72 lg:h-[420px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1800&q=80"
-          alt="Farmers working in green fields and farmland"
+          src="https://images.unsplash.com/sEml33XkzkE?auto=format&fit=crop&w=1920&q=85"
+          alt="Farmer harvesting rice in Hampi, Karnataka, India"
           fill
-          className="object-cover object-[center_60%]"
+          className="object-cover object-[center_45%]"
+          priority={false}
         />
-        {/* subtle vignette — darker on the right where farmers are, open field on left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-forest-900/10 via-transparent to-forest-900/40" />
+        {/* bottom fade into next section */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/30" />
       </section>
 
       {/* GROWTH TIMELINE */}
