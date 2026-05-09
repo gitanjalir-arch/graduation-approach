@@ -23,30 +23,12 @@ const STARTER_QUESTIONS = [
   "Can Graduation work in refugee contexts?",
 ];
 
-function CitationBadge({ text }: { text: string }) {
-  return (
-    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-medium bg-forest-600/10 border border-forest-600/25 text-forest-700 mx-0.5 whitespace-nowrap">
-      {text}
-    </span>
-  );
-}
-
 function renderAnswerText(text: string) {
-  const paragraphs = text.split(/\n\n+/);
-  return paragraphs.map((para, pi) => {
-    const parts = para.split(/(\[Source:[^\]]+\])/g);
-    const rendered = parts.map((part, i) => {
-      if (part.startsWith("[Source:")) {
-        return <CitationBadge key={i} text={part.slice(1, -1)} />;
-      }
-      return <span key={i}>{part}</span>;
-    });
-    return (
-      <p key={pi} className={pi > 0 ? "mt-3" : ""}>
-        {rendered}
-      </p>
-    );
-  });
+  return text.split(/\n\n+/).map((para, i) => (
+    <p key={i} className={i > 0 ? "mt-3" : ""}>
+      {para}
+    </p>
+  ));
 }
 
 function TypingIndicator() {
@@ -97,18 +79,18 @@ function AssistantBubble({
               {content ? renderAnswerText(content) : null}
             </div>
             {sources && sources.length > 0 && (
-              <div className="mt-3 pt-3 border-t border-slate-100">
-                <div className="text-[10px] uppercase tracking-wider text-ink-500 mb-1.5">
-                  Sources consulted
+              <div className="mt-4 pt-3 border-t border-slate-100">
+                <div className="text-[10px] uppercase tracking-wider text-ink-500 mb-2">
+                  Sources
                 </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {sources.map((s, i) => (
-                    <span key={i} className="pill-forest text-[11px]">
-                      {s.source}
-                      {s.section ? ` · ${s.section}` : ""}
-                    </span>
+                <ul className="space-y-1">
+                  {[...new Set(sources.map((s) => s.source))].map((src) => (
+                    <li key={src} className="flex items-start gap-1.5 text-[12px] text-ink-600">
+                      <span className="mt-0.5 text-forest-600 shrink-0">—</span>
+                      {src}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             )}
           </>
