@@ -28,7 +28,7 @@ export default function GetStartedPage() {
           "Read the CGAP / World Bank Technical Guide (the canonical implementation reference, 2018, 2nd ed.).",
           "Browse our Atlas to find 3–5 programmes most similar to your context — same geography, same population, same scale.",
           "Use our People directory to identify the programme manager or director of those programmes. Most are open to a 30-minute call.",
-          "If you want technical assistance: BRAC UPGI advises governments specifically. Trickle Up, Pradan, and Fundación Capital advise NGOs.",
+          "If you want technical assistance: BRAC UPGI advises governments specifically. Trickle Up and Fundación Capital advise NGOs.",
           "Start with a 100–300 household pilot. Almost no successful Graduation programme started bigger.",
         ]}
         cta="See programmes like yours"

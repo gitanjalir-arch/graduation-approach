@@ -2,6 +2,71 @@ import Link from "next/link";
 import Image from "next/image";
 import { programs, orgs, evidence, countryNames } from "@/data/seed";
 
+const timelineData = [
+  { year: "2002", label: "BRAC Bangladesh — first cohort", programmes: 1, hh: "50 households" },
+  { year: "2006", label: "CGAP-Ford 10-country pilots", programmes: 8, hh: "5,000 households" },
+  { year: "2011", label: "Government scale-up begins", programmes: 25, hh: "1 million" },
+  { year: "2015", label: "Banerjee et al. published in Science", programmes: 50, hh: "2 million" },
+  { year: "2016", label: "JEEViKA Bihar launches at scale", programmes: 70, hh: "5 million" },
+  { year: "2017", label: "PEI established at World Bank", programmes: 100, hh: "8 million" },
+  { year: "2021", label: "SEI Report 2021 — 219 programmes", programmes: 219, hh: "9.8 million" },
+  { year: "2022", label: "Rwanda national strategy adopted", programmes: 280, hh: "12 million" },
+  { year: "2024", label: "SEI Report 2024 — 88 countries", programmes: 405, hh: "15 million+" },
+];
+
+const layeringStack = [
+  {
+    tier: "Foundation",
+    title: "Government safety nets",
+    detail: "Cash transfers, food rations, and PSNP-style programmes establish the income floor that prevents destitution while the household builds assets.",
+    examples: "Ethiopia PSNP · India MGNREGA · Kenya HSNP",
+    bg: "bg-forest-900",
+    text: "text-white",
+    sub: "text-teal-200/70",
+    badge: "bg-white/10 text-white/70",
+  },
+  {
+    tier: "Layer 2",
+    title: "Universal entitlements",
+    detail: "Health coverage, digital ID, school enrolment, and WASH — rights-based services that Graduation coaches actively link households into.",
+    examples: "Ayushman Bharat · NHIF Kenya · NIDA Rwanda",
+    bg: "bg-forest-700",
+    text: "text-white",
+    sub: "text-teal-200/70",
+    badge: "bg-white/10 text-white/70",
+  },
+  {
+    tier: "The Graduation Approach",
+    title: "Asset + coaching + savings",
+    detail: "The time-bound, multi-component programme — productive asset, consumption support, skills training, personal coaching, and savings group — that accelerates the transition.",
+    examples: "BRAC · BOMA · JEEViKA · Fonkoze · Village Enterprise",
+    bg: "bg-clay-500",
+    text: "text-white",
+    sub: "text-white/80",
+    badge: "bg-white/20 text-white",
+  },
+  {
+    tier: "Layer 4",
+    title: "Financial inclusion",
+    detail: "Bank accounts, mobile money, microfinance, and index insurance unlock the ability to save, borrow, and absorb shocks without selling productive assets.",
+    examples: "M-Pesa · Jan Dhan · VSLA · MFI linkages",
+    bg: "bg-cream-200",
+    text: "text-forest-900",
+    sub: "text-ink-600",
+    badge: "bg-forest-700/10 text-forest-700",
+  },
+  {
+    tier: "Layer 5",
+    title: "Market systems & extension",
+    detail: "Agricultural extension services, buyer linkages, and value chain integration allow graduates to grow beyond subsistence into commercially viable enterprise.",
+    examples: "USAID FTF · SHG-linked market access · cooperatives",
+    bg: "bg-cream-100",
+    text: "text-forest-900",
+    sub: "text-ink-600",
+    badge: "bg-forest-700/10 text-forest-700",
+  },
+];
+
 export default function HomePage() {
   const featured = programs.filter((p) => p.featured).slice(0, 6);
 
@@ -96,6 +161,90 @@ export default function HomePage() {
             label="Earnings increase"
             sub="sustained 7 years on, BRAC Bangladesh"
           />
+        </div>
+      </section>
+
+      {/* GROWTH TIMELINE */}
+      <section className="bg-forest-900 overflow-hidden">
+        <div className="container-wide py-20">
+          <div className="text-center mb-14">
+            <div className="text-xs tracking-[0.25em] uppercase text-clay-400 mb-3">
+              Twenty years of growth
+            </div>
+            <h2 className="font-display text-3xl lg:text-4xl text-white">
+              From 50 households to 15 million
+            </h2>
+            <p className="mt-4 text-teal-200/60 max-w-xl mx-auto text-sm leading-relaxed">
+              Hover over any bar to see the milestone. Bars show active programme count.
+            </p>
+          </div>
+
+          {/* Bar chart */}
+          <div className="flex items-end gap-1 lg:gap-2 h-52 px-2">
+            {timelineData.map((t) => {
+              const barH = Math.max(6, Math.round((t.programmes / 405) * 192));
+              return (
+                <div
+                  key={t.year}
+                  className="group relative flex flex-col items-center flex-1"
+                >
+                  {/* Hover card */}
+                  <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 bg-white rounded-xl p-4 w-52 shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none z-20 text-left">
+                    <div className="text-xs font-mono text-clay-600 font-semibold mb-1">{t.year}</div>
+                    <div className="font-display text-forest-900 text-sm leading-snug mb-2">{t.label}</div>
+                    <div className="flex gap-3 text-xs">
+                      <div>
+                        <span className="text-ink-500 block">Programmes</span>
+                        <span className="font-semibold text-forest-700">{t.programmes}</span>
+                      </div>
+                      <div>
+                        <span className="text-ink-500 block">Households</span>
+                        <span className="font-semibold text-forest-700">{t.hh}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bar */}
+                  <div
+                    className="w-full rounded-t-md opacity-60 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      height: `${barH}px`,
+                      background: "linear-gradient(to top, #0F766E, #2DD4BF)",
+                    }}
+                  />
+
+                  {/* Year */}
+                  <div className="mt-2 text-[10px] font-mono text-white/30 group-hover:text-clay-400 transition-colors hidden lg:block">
+                    {t.year}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Year labels for mobile */}
+          <div className="flex justify-between px-2 mt-2 lg:hidden">
+            <span className="text-[10px] font-mono text-white/40">2002</span>
+            <span className="text-[10px] font-mono text-white/40">2024</span>
+          </div>
+
+          {/* Key milestones */}
+          <div className="mt-12 grid grid-cols-3 gap-4 border-t border-white/10 pt-8 text-center">
+            <div>
+              <div className="font-display text-3xl text-clay-400">2002</div>
+              <div className="text-xs text-white/50 mt-1">BRAC Bangladesh first pilot</div>
+            </div>
+            <div>
+              <div className="font-display text-3xl text-clay-400">2015</div>
+              <div className="text-xs text-white/50 mt-1">
+                Published in <em>Science</em> · Nobel-winning team
+              </div>
+            </div>
+            <div>
+              <div className="font-display text-3xl text-clay-400">2024</div>
+              <div className="text-xs text-white/50 mt-1">405 programmes · 88 countries</div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -326,6 +475,60 @@ export default function HomePage() {
               text="Filter the global atlas by methodology, geography, and sample size. Connect with PIs directly."
               href="/get-started#researchers"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* LAYERING METHODS */}
+      <section className="bg-white border-b border-slate-100">
+        <div className="container-wide py-20 grid lg:grid-cols-2 gap-14 items-start">
+          <div>
+            <div className="text-xs tracking-[0.25em] uppercase text-clay-600 mb-3">
+              How it fits together
+            </div>
+            <h2 className="font-display text-3xl lg:text-4xl text-forest-900 leading-tight mb-5">
+              Layering on what already exists
+            </h2>
+            <p className="text-ink-700 leading-relaxed mb-5">
+              The Graduation Approach works best as a layer on top of existing
+              government social protection systems — not a replacement for them.
+              Graduates are systematically enrolled in health insurance, digital
+              IDs, and government transfers before coaching ends.
+            </p>
+            <p className="text-ink-700 leading-relaxed mb-5">
+              In Ethiopia, Rwanda, and Bihar, government Graduation programmes
+              explicitly sequence social protection enrolment first, then asset
+              transfer, then coaching, then market linkage — each layer
+              reinforcing the next and the whole proving more durable than any
+              single intervention.
+            </p>
+            <div className="bg-cream-100 rounded-xl p-5 border border-slate-100">
+              <div className="text-xs uppercase tracking-wider text-clay-600 font-semibold mb-2">Key finding</div>
+              <p className="text-sm text-ink-700 leading-relaxed">
+                PEI 2024 found graduates enrolled in a government cash transfer
+                at programme end show <strong className="text-forest-900">40% lower re-poverty rates</strong> at
+                5-year follow-up. The transfer acts as insurance against small
+                shocks while the enterprise matures.
+              </p>
+            </div>
+          </div>
+          <div className="space-y-2">
+            {layeringStack.map((l) => (
+              <div key={l.tier} className={`rounded-xl p-5 ${l.bg}`}>
+                <div className="flex items-start gap-4">
+                  <div className="flex-1">
+                    <div className={`text-[10px] uppercase tracking-widest font-semibold mb-1 ${l.sub}`}>
+                      {l.tier}
+                    </div>
+                    <div className={`font-display text-lg leading-tight mb-1 ${l.text}`}>
+                      {l.title}
+                    </div>
+                    <p className={`text-xs leading-relaxed mb-2 ${l.sub}`}>{l.detail}</p>
+                    <div className={`text-[10px] font-mono ${l.sub}`}>{l.examples}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

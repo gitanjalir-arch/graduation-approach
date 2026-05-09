@@ -26,16 +26,45 @@ export const metadata: Metadata = {
   },
 };
 
-const nav = [
-  { href: "/atlas", label: "Atlas" },
-  { href: "/programs", label: "Programs" },
-  { href: "/orgs", label: "Organisations" },
-  { href: "/people", label: "People" },
-  { href: "/evidence", label: "Evidence" },
-  { href: "/models", label: "Models" },
-  { href: "/resources", label: "Resources" },
-  { href: "/get-started", label: "Get Started" },
+type NavItem = { href: string; label: string; sub?: string };
+type NavGroupDef = { label: string; firstHref: string; items: NavItem[] };
+
+const navGroups: NavGroupDef[] = [
+  {
+    label: "Explore",
+    firstHref: "/atlas",
+    items: [
+      { href: "/atlas", label: "Atlas", sub: "Map of the field" },
+      { href: "/programs", label: "Programmes", sub: "Field-level entries" },
+      { href: "/orgs", label: "Organisations", sub: "Implementers & funders" },
+      { href: "/people", label: "People", sub: "Researchers & practitioners" },
+    ],
+  },
+  {
+    label: "Learn",
+    firstHref: "/elements",
+    items: [
+      { href: "/elements", label: "Elements", sub: "The building blocks" },
+      { href: "/models", label: "Models", sub: "Variants of the approach" },
+      { href: "/impact", label: "Impact", sub: "Measuring outcomes" },
+      { href: "/coaching", label: "Coaching Intensity", sub: "Light to high touch" },
+      { href: "/sustainability", label: "Sustainability", sub: "Long-term durability" },
+      { href: "/evidence", label: "Evidence", sub: "Studies & evaluations" },
+      { href: "/resources", label: "Resources", sub: "Tools & reading" },
+    ],
+  },
+  {
+    label: "Community",
+    firstHref: "/get-started",
+    items: [
+      { href: "/get-started", label: "Get Started", sub: "Choose your path" },
+      { href: "/community", label: "Community", sub: "Join the network" },
+      { href: "/about", label: "About", sub: "Our mission" },
+    ],
+  },
 ];
+
+const allNavItems: NavItem[] = navGroups.flatMap((g) => g.items);
 
 export default function RootLayout({
   children,
@@ -101,15 +130,9 @@ function SiteHeader() {
             </div>
           </div>
         </Link>
-        <nav className="hidden lg:flex items-center gap-6 text-sm">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-slate-600 hover:text-forest-700 no-underline transition-colors"
-            >
-              {item.label}
-            </Link>
+        <nav className="hidden lg:flex items-center gap-8 text-sm">
+          {navGroups.map((group) => (
+            <NavGroup key={group.label} label={group.label} items={group.items} />
           ))}
         </nav>
         <Link
@@ -119,20 +142,62 @@ function SiteHeader() {
           Join
         </Link>
       </div>
-      <nav className="lg:hidden border-t border-ink-900/5 overflow-x-auto">
-        <div className="flex gap-5 px-6 py-3 text-xs whitespace-nowrap">
-          {nav.map((item) => (
+      <nav className="lg:hidden border-t border-slate-100 overflow-x-auto">
+        <div className="flex gap-6 px-6 py-3 text-xs whitespace-nowrap">
+          {navGroups.map((group) => (
             <Link
-              key={item.href}
-              href={item.href}
+              key={group.label}
+              href={group.firstHref}
               className="text-slate-600 hover:text-forest-700 no-underline"
             >
-              {item.label}
+              {group.label}
             </Link>
           ))}
         </div>
       </nav>
     </header>
+  );
+}
+
+function NavGroup({
+  label,
+  items,
+}: {
+  label: string;
+  items: NavItem[];
+}) {
+  return (
+    <div className="relative group">
+      <button className="flex items-center gap-1 text-sm text-slate-600 hover:text-forest-700 py-2 font-medium">
+        {label}
+        <svg
+          className="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          aria-hidden
+        >
+          <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+        </svg>
+      </button>
+      <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+        <div className="bg-white rounded-xl shadow-xl border border-slate-100 py-2 overflow-hidden">
+          {items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="flex flex-col px-4 py-2.5 hover:bg-forest-700/5 no-underline group/item"
+            >
+              <span className="text-sm font-medium text-ink-900 group-hover/item:text-forest-700">
+                {item.label}
+              </span>
+              {item.sub && (
+                <span className="text-xs text-ink-500">{item.sub}</span>
+              )}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -199,7 +264,7 @@ function SiteFooter() {
             Explore
           </div>
           <ul className="space-y-2 text-sm">
-            {nav.slice(0, 4).map((item) => (
+            {allNavItems.slice(0, 4).map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
